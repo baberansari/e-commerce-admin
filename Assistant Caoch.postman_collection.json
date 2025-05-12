@@ -1,0 +1,1712 @@
+{
+	"info": {
+		"_postman_id": "95b79058-b99e-48c1-8765-b392c7ca362f",
+		"name": "Assistant Caoch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19362377",
+		"_collection_link": "https://martian-astronaut-28266.postman.co/workspace/Lucid-Web-Solution~74e11f67-3949-4ea6-b092-1c4217e4bb54/collection/19362377-95b79058-b99e-48c1-8765-b392c7ca362f?action=share&source=collection_link&creator=19362377"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{assistant_caoch_url}}/login?email=admin@gmail.com&password=12345678",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "12345678"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "admin1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{assistant_caoch_url}}/register",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Link For forget password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{assistant_caoch_url}}/forget-password",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset - Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{assistant_caoch_url}}/reset-password?token=4b6bc25dae35b3373b98810cb0fbb1217fc49acb31cd89c3c6fdc78cf728b213&email=admin@gmail.com&password=12345678&password_confirmation=12345678",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"reset-password"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "4b6bc25dae35b3373b98810cb0fbb1217fc49acb31cd89c3c6fdc78cf728b213"
+								},
+								{
+									"key": "email",
+									"value": "admin@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "12345678"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{assisstant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{assistant_caoch_url}}/change-password",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile  View",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{assisstant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{assistant_caoch_url}}/view-profile",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"view-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{assisstant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "User",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/D:/24-03-2024/download.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{assistant_caoch_url}}/profile-update",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"profile-update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plan",
+			"item": [
+				{
+					"name": "get All plane",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{assisstant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{assistant_caoch_url}}/subscriptionPlane",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"subscriptionPlane"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{assisstant_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{assistant_caoch_url}}/addSubscription",
+							"host": [
+								"{{assistant_caoch_url}}"
+							],
+							"path": [
+								"addSubscription"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leaque Rule",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/leaque-rule?sport_id=1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"leaque-rule"
+					],
+					"query": [
+						{
+							"key": "sport_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sport List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/sport",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"sport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create League",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n                    \"sport_id\":1,\r\n                    \"league_rule_id\":4,\r\n                    \"number_of_team\":4,\r\n                    \"team_name\":[\"A\", \"B\", \"C\"],\r\n                    \"title\": \"Canadian Football League (CFL)\",\r\n                    \"number_of_downs\": 3,\r\n                    \"length_of_field\": \"110 yards\",\r\n                    \"number_of_timeouts\": 1,\r\n                    \"clock_time\": \"CFL\",\r\n                    \"number_of_quarters\": 4,\r\n                    \"length_of_quarters\": 15,\r\n                    \"stop_time_reason\": 1,\r\n                    \"overtime_rules\": 1,\r\n                    \"number_of_players\": 12,\r\n                    \"flag_tbd\": \"No\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/leaque-create",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"leaque-create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "League List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/leaque?sport_id=1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"leaque"
+					],
+					"query": [
+						{
+							"key": "sport_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View League",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/leaque-view/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"leaque-view",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update League",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                \"sport_id\":1,\r\n                \"league_rule_id\":4,\r\n                \"number_of_team\":4,\r\n                \"team_name\":[\"A\", \"B\", \"C\"],\r\n                \"title\": \"Canadian Football League (CFL)\",\r\n                \"number_of_downs\": 3,\r\n                \"length_of_field\": \"110 yards\",\r\n                \"number_of_timeouts\": 1,\r\n                \"clock_time\": \"CFL\",\r\n                \"number_of_quarters\": 4,\r\n                \"length_of_quarters\": 15,\r\n                \"stop_time_reason\": 1,\r\n                \"overtime_rules\": 1,\r\n                \"number_of_players\": 12,\r\n                \"flag_tbd\": \"No\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/leaque-update/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"leaque-update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Player",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Jhon ",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "position",
+							"value": "1",
+							"description": "1= offence  2= deffence ",
+							"type": "text"
+						},
+						{
+							"key": "size",
+							"value": "5.6",
+							"type": "text"
+						},
+						{
+							"key": "speed",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "strength",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "offensive",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/add-player",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"add-player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Player",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/view-player/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"view-player",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update player",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 4|kVYWI5Fc8xsiFxVPJaRHSsoKElEGZJZvwH18XOrCf9c7c6d4"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Jhon ",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "position",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "size",
+							"value": "5.6",
+							"type": "text"
+						},
+						{
+							"key": "speed",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "strength",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "offensive",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/update-player/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"update-player",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Player List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/player-list",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"player-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Player",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/delete-player/2",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"delete-player",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Team Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "team_name",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/24-03-2024/test (4).jpg"
+						},
+						{
+							"key": "playerid[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "playerid[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "playertype[]",
+							"value": "offensive",
+							"type": "text"
+						},
+						{
+							"key": "playertype[]",
+							"value": "defensive",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/create-team",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"create-team"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "team-list-by-league -id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/team-list-by-league/5",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"team-list-by-league",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Team",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 1|sdbtPJJswHOsY2mwrXaobrowXLHVPiwBjfK50Q0sda57733e"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "league_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "team_name",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/24-03-2024/test (4).jpg"
+						},
+						{
+							"key": "playerid[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "playerid[]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "playertype[]",
+							"value": "offensive",
+							"type": "text"
+						},
+						{
+							"key": "playertype[]",
+							"value": "defensive",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/update-team/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"update-team",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Team",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/view-team/2",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"view-team",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Team List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/team-list",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"team-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/dashboard",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"dashboard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Play",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/hp/Desktop/stick-lbl8d0a.png"
+						},
+						{
+							"key": "play_name",
+							"value": "Test play",
+							"type": "text"
+						},
+						{
+							"key": "play_type",
+							"value": "1",
+							"description": "Id",
+							"type": "text"
+						},
+						{
+							"key": "zone_selection",
+							"value": "2",
+							"description": "Id",
+							"type": "text"
+						},
+						{
+							"key": "min_expected_yard",
+							"value": "4",
+							"description": "number",
+							"type": "text"
+						},
+						{
+							"key": "max_expected_yard",
+							"value": "8",
+							"description": "number",
+							"type": "text"
+						},
+						{
+							"key": "target_offensive",
+							"value": "1",
+							"description": "id",
+							"type": "text"
+						},
+						{
+							"key": "opposing_defensive",
+							"value": "3",
+							"description": "id",
+							"type": "text"
+						},
+						{
+							"key": "pre_snap_motion",
+							"value": "1",
+							"description": "0 ,1",
+							"type": "text"
+						},
+						{
+							"key": "play_action_fake",
+							"value": "0",
+							"description": "0,1",
+							"type": "text"
+						},
+						{
+							"key": "perfer_down_selection",
+							"value": "1",
+							"description": "1,2,3,4",
+							"type": "text"
+						},
+						{
+							"key": "league_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/uplaod-play",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"uplaod-play"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/upload-play-list?league_id=1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"upload-play-list"
+					],
+					"query": [
+						{
+							"key": "league_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-play",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/delete-play/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"delete-play",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Formation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "formation_name",
+							"value": "111",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "data:image/png;base64,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",
+							"type": "text"
+						},
+						{
+							"key": "league_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "players[0][name]",
+							"value": "arbaz",
+							"type": "text"
+						},
+						{
+							"key": "players[0][x]",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "players[0][y]",
+							"value": "13",
+							"type": "text"
+						},
+						{
+							"key": "players[0][type]",
+							"value": "offensive",
+							"type": "text"
+						},
+						{
+							"key": "players[1][name]",
+							"value": "sss",
+							"type": "text"
+						},
+						{
+							"key": "players[1][x]",
+							"value": "45",
+							"type": "text"
+						},
+						{
+							"key": "players[1][y]",
+							"value": "22",
+							"type": "text"
+						},
+						{
+							"key": "players[1][type]",
+							"value": "defensive",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/create-formation",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"create-formation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Formation view",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/formation-view/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"formation-view",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Formation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/delete-formation/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"delete-formation",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Formation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "formation_name",
+							"value": "111",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "data:image/png;base64,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",
+							"type": "text"
+						},
+						{
+							"key": "league_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "players[0][name]",
+							"value": "arbaz",
+							"type": "text"
+						},
+						{
+							"key": "players[0][x]",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "players[0][y]",
+							"value": "13",
+							"type": "text"
+						},
+						{
+							"key": "players[0][type]",
+							"value": "offensive",
+							"type": "text"
+						},
+						{
+							"key": "players[1][name]",
+							"value": "sss",
+							"type": "text"
+						},
+						{
+							"key": "players[1][x]",
+							"value": "45",
+							"type": "text"
+						},
+						{
+							"key": "players[1][y]",
+							"value": "22",
+							"type": "text"
+						},
+						{
+							"key": "players[1][type]",
+							"value": "defensive",
+							"type": "text"
+						},
+						{
+							"key": "players[1][player_number]",
+							"value": "031595413478",
+							"type": "text"
+						},
+						{
+							"key": "players[0][player_number]",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/update-formation/1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"update-formation",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Formation listing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/formation-list",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"formation-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Configure Player",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"team_id\":\"1\",\r\n    \"player_id\":[1,2],\r\n    \"type\":[\"offensive\",\"deffensive\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/configure-player",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"configure-player"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "configure-player-visiting",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"team_id\":\"1\",\r\n    \"player_id\":[1,2],\r\n    \"type\":[\"offensive\",\"deffensive\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/configure-player-visiting",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"configure-player-visiting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "configure-player-view",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/configure-player-view?team_id=1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"configure-player-view"
+					],
+					"query": [
+						{
+							"key": "team_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "configure-formation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "league_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "formation_id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/configure-formation",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"configure-formation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "configure-formation-view",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/configure-formation-view?league_id=1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"configure-formation-view"
+					],
+					"query": [
+						{
+							"key": "league_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "configure-play-view",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{assistant_caoch_url}}/configure-play-view?league_id=1",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"configure-play-view"
+					],
+					"query": [
+						{
+							"key": "league_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "configure-play",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"play_id\":[1,2],\r\n    \"league_id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/configure-play",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"configure-play"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save sport",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{assisstant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "sport_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{assistant_caoch_url}}/save-sport",
+					"host": [
+						"{{assistant_caoch_url}}"
+					],
+					"path": [
+						"save-sport"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
