@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "e48f0704-37c4-4c6f-877a-eaab33f1f91c",
+		"name": "E-commerce Admin API",
+		"description": "Collection for testing the E-commerce Admin API endpoints for sales, inventory, and product management.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19362377",
+		"_collection_link": "https://martian-astronaut-28266.postman.co/workspace/Lucid-Web-Solution~74e11f67-3949-4ea6-b092-1c4217e4bb54/collection/19362377-e48f0704-37c4-4c6f-877a-eaab33f1f91c?action=share&source=collection_link&creator=19362377"
+	},
+	"item": [
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "Get Sales",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/sales?startDate=2025-05-01&endDate=2025-05-04&categoryId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"sales"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2025-05-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-05-04"
+								},
+								{
+									"key": "categoryId",
+									"value": "1"
+								},
+								{
+									"key": "productId",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "Retrieve sales data with optional filters for date range, product ID, or category ID. Returns sales with associated Product and Category names."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Revenue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/sales/revenue?period=daily&startDate=2025-05-01&endDate=2025-05-04",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"sales",
+								"revenue"
+							],
+							"query": [
+								{
+									"key": "period",
+									"value": "daily",
+									"description": "daily , weekly , monthly ,annually"
+								},
+								{
+									"key": "startDate",
+									"value": "2025-05-01"
+								},
+								{
+									"key": "endDate",
+									"value": "2025-05-04"
+								}
+							]
+						},
+						"description": "Analyze revenue by period (daily, weekly, monthly, annually) with optional date range filter. Includes Product and Category names."
+					},
+					"response": []
+				},
+				{
+					"name": "Compare Revenue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/sales/compare?period1Start=2025-05-01&period1End=2025-05-02&period2Start=2025-05-03&period2End=2025-05-04&categoryId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"sales",
+								"compare"
+							],
+							"query": [
+								{
+									"key": "period1Start",
+									"value": "2025-05-01"
+								},
+								{
+									"key": "period1End",
+									"value": "2025-05-02"
+								},
+								{
+									"key": "period2Start",
+									"value": "2025-05-03"
+								},
+								{
+									"key": "period2End",
+									"value": "2025-05-04"
+								},
+								{
+									"key": "categoryId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Compare total revenue between two periods, optionally filtered by category ID."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Get Inventory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/inventory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"inventory"
+							]
+						},
+						"description": "Retrieve current inventory status, including product names, stock levels, and low stock alerts."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Inventory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"productId\": 1, \"change\": -5, \"reason\": \"Sale\"}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/inventory/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"inventory",
+								"update"
+							]
+						},
+						"description": "Update product inventory by specifying product ID, stock change, and reason."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Register Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"Headphones\", \"price\": 99.99, \"stock\": 50, \"categoryId\": 1}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products"
+							]
+						},
+						"description": "Register a new product with name, price, stock, and category ID."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
